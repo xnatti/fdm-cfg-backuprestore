@@ -10,3 +10,8 @@ There are a few reasons.
 2. I want the code to be readable enough so someone that's also just starting out can both understand and modify the code for their own use. (ie, no classes, separate filenames for functions)
 
 
+## Stuff to remember
+
+If I modify the objects and impoort into a new device, I should remove version and id attributes.
+Future consideration would be a clean-up task.
+
