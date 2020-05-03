@@ -105,6 +105,8 @@ if response.status_code == 200:
  print('Download successful')
 
 # saving the config to a zip file
+write('Attempting to write to ' + jobDetails['filename'])
+
 with open(jobDetails['filename'], 'wb') as file:
  file.write(response.content)
 
