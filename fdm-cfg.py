@@ -56,13 +56,12 @@ exportBody = {
  'doNotEncrypt': True,
  'configExportType': 'FULL_EXPORT',
  'deployedObjectsonly': True,
- 'type': 'scheduledconfigexport'
+ 'type': 'scheduleconfigexport'
 }
 
 
 # atn, verify False, needs cert check
-
-#response = requests.post(FDMURI, headers=headers, verify=False)
+response = requests.post(FDMExport, json.dumps(exportBody), headers=headers, verify=False)
 
 
  
