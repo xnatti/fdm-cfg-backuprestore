@@ -23,7 +23,12 @@ username = input()
 password = getpass()
 
 
-FDMURI = 'https://' + FDMHost + '/api/fdm/latest/action/configexport'
+# base URI for exporting config
+FDMExport = 'https://' + FDMHost + '/api/fdm/latest/action/configexport'
+
+# base URI for authentication to get token info
+FDMAuth = 'https://' + FDMHost + '/api/fdm/latest/fdm/token'
+
 
 headers = {
  'Accept': 'application/json',
@@ -31,8 +36,20 @@ headers = {
 }
 
 
+# dict/json object to use for token generation
+fdm_password_grant = {
+ 'grant_type': 'password',
+ 'username': username,
+ 'password': password
+}
 
 
+#getting the token info from FDM
+response = requests.post(FDMAuth, data=json.dumps(fdm_password_grant), headers=headers, verify=False)
+responseJSON = json.loads(bytes.decode(response.content))
+
+#adding token to the header
+headers['Authorization'] = 'Bearer ' + responseJSON['access_token']
 
 
 exportBody = {
@@ -45,7 +62,7 @@ exportBody = {
 
 # atn, verify False, needs cert check
 
-response = requests.post(FDMURI, headers=headers, verify=False)
+#response = requests.post(FDMURI, headers=headers, verify=False)
 
 
  
