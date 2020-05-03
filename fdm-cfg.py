@@ -8,6 +8,7 @@
 from getpass import getpass
 import requests
 import json
+import time
 
 username = ''
 password = ''
@@ -78,7 +79,11 @@ jobDetails = {
  }
 
  
-# need to add wait time here
+# wait time for job
+print('Waiting 15 sec for job to maybe finish...')
+time.sleep(15)
+
+
 # I can use FDMJob variable to look into all jobs, or use specific job info from the FDMExport output
 
 response = requests.get(FDMJob + '/' + jobDetails['jobID'], headers=headers, verify=False)
@@ -102,6 +107,4 @@ if response.status_code == 200:
 # saving the config to a zip file
 with open(jobDetails['filename'], 'wb') as file:
  file.write(response.content)
-
-
 
