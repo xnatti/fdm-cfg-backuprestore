@@ -10,11 +10,15 @@ import requests
 import json
 import time
 
+
+# presetting the variables (b/c testing)
 username = ''
 password = ''
 FDMHost = ''
 
-print('Firepower Host: ', end='')
+# populating the variables)
+
+print('Firepower Host(IP): ', end='')
 FDMHost = input()
 
 print('Username: ', end='')
@@ -53,8 +57,12 @@ fdm_password_grant = {
 
 
 #getting the token info from FDM and loading into a dict
+# atn, verify False, needs cert check
 response = requests.post(FDMAuth, data=json.dumps(fdm_password_grant), headers=headers, verify=False)
 responseJSON = json.loads(bytes.decode(response.content))
+
+# need to check if successful
+
 
 #adding token to the header
 headers['Authorization'] = 'Bearer ' + responseJSON['access_token']
@@ -69,7 +77,6 @@ exportBody = {
 
 
 # here we post the config backup job
-# atn, verify False, needs cert check
 response = requests.post(FDMExport, json.dumps(exportBody), headers=headers, verify=False)
 responseJSON = json.loads(bytes.decode(response.content))
 
@@ -109,4 +116,3 @@ print('Attempting to write to ' + jobDetails['filename'])
 
 with open(jobDetails['filename'], 'wb') as file:
  file.write(response.content)
-
