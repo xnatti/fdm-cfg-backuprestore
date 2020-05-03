@@ -74,9 +74,8 @@ response = requests.post(FDMExport, json.dumps(exportBody), headers=headers, ver
 responseJSON = json.loads(bytes.decode(response.content))
 
 jobDetails = {
- 'filename': responseJSON['items'][0]['diskFileName'],
- 'jobID': responseJSON['items'][0]['id']
- }
+ 'jobID': responseJSON['jobHistoryUuid']
+}
 
  
 # wait time for job
@@ -92,6 +91,7 @@ responseJSON = json.loads(bytes.decode(response.content))
 if responseJSON['status'] == 'SUCCESS':
  print('Job finished, lets get that file')
 
+jobDetails['filename'] = responseJSON['diskFileName']
 
 # getting a new copy of the headers and modifying the accept attribute since we are downloading a binary file and not just text
 headersStream = headers.copy()
@@ -105,7 +105,7 @@ if response.status_code == 200:
  print('Download successful')
 
 # saving the config to a zip file
-write('Attempting to write to ' + jobDetails['filename'])
+print('Attempting to write to ' + jobDetails['filename'])
 
 with open(jobDetails['filename'], 'wb') as file:
  file.write(response.content)
