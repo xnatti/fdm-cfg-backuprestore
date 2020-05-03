@@ -32,6 +32,9 @@ FDMAuth = 'https://' + FDMHost + '/api/fdm/latest/fdm/token'
 # base URI for checking job export status
 FDMJob = 'https://' + FDMHost + '/api/fdm/latest/jobs/configexportstatus'
 
+# base URI for download function
+FDMDownload = 'https://' + FDMHost + '/api/fdm/latest/action/downloadconfigfile/'
+
 
 
 headers = {
@@ -79,4 +82,26 @@ jobDetails = {
 # I can use FDMJob variable to look into all jobs, or use specific job info from the FDMExport output
 
 response = requests.get(FDMJob + '/' + jobDetails['jobID'], headers=headers, verify=False)
+responseJSON = json.loads(bytes.decode(response.content))
+
+if responseJSON['status'] == 'SUCCESS':
+ print('Job finished, lets get that file')
+
+
+# getting a new copy of the headers and modifying the accept attribute since we are downloading a binary file and not just text
+headersStream = headers.copy()
+headersStream['Accept'] = 'application/octet-stream'
+
+
+# actual download of the config
+response = requests.get(FDMDownload + jobDetails['filename'], headers=headersStream, verify=False)
+
+if response.status_code == 200:
+ print('Download successful')
+
+# saving the config to a zip file
+with open(jobDetails['filename'], 'wb') as file:
+ file.write(response.content)
+
+
 
