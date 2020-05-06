@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
+# 
+# This snippet can be used to list config files on the FDM.
 #
-# This snippet just loads the selected config.
-# Auto deploy is off, so you must deploy manually
-#
+
 import requests
 import json
 from getpass import getpass
@@ -23,7 +23,7 @@ username = ''
 password = ''
 FDMHost = ''
 
-# populating the variables
+# populating the variables)
 
 print('Firepower Host(IP): ', end='')
 FDMHost = input()
@@ -34,8 +34,6 @@ username = input()
 # getpass prints "Password:" on it's own
 password = getpass()
 
-print('File name according to FDM (diskFileName): ', end='')
-diskFileName = input()
 
 headers = {
  'Accept': 'application/json',
@@ -55,17 +53,8 @@ def newToken():
 
 newToken()
 
-importBody = {
- 'diskFileName': diskFileName,
- 'preserveConfigFile': True,
- 'autoDeploy': False,
- 'allowPendingChange': True,
- 'type': 'scheduleconfigimport'
-}
 
-# loading the config on FDM. Note that you may loose admin access for a few minutes while the FDM is working on this.
-response = requests.post('https://' + FDMHost + '/api/fdm/latest/action/configimport', data=json.dumps(importBody), headers=headers, verify=False)
 
-# print the response, should be 200.
-print(response)
-
+# to list files: 
+response = requests.get('https://' + FDMHost + '/api/fdm/latest/action/configfiles', headers=headers, verify=False)
+print(response.text)

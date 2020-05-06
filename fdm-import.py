@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# 
+# This snippet can be used to upload a file to FDM.
+#
 
 import requests
 import json
