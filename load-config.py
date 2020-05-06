@@ -65,9 +65,9 @@ importBody = {
  'type': 'scheduleconfigimport'
 }
 
-#to load config response = requests.post('https://192.168.250.10/api/fdm/latest/action/configimport', data=json.dumps(importBody), headers=headers, verify=False)
+#to load config response = requests.post('https://FDM/api/fdm/latest/action/configimport', data=json.dumps(importBody), headers=headers, verify=False)
 # may loose admin access for a while
 
-# to list files: response = requests.get('https://192.168.250.10/api/fdm/latest/action/configfiles', headers=headers, verify=False)
+# to list files: response = requests.get('https://FDM/api/fdm/latest/action/configfiles', headers=headers, verify=False)
 # https://franklingu.github.io/programming/2017/10/30/post-multipart-form-data-using-requests/
 # prepared https://requests.readthedocs.io/en/master/user/advanced/
