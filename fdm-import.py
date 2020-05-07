@@ -2,10 +2,12 @@
 # 
 # This snippet can be used to upload a file to FDM.
 #
+# 
 
 import requests
 import json
 from getpass import getpass
+from requests import Request, Session
 
 
 # ok, actually to upload the friggin file:
@@ -23,7 +25,7 @@ username = ''
 password = ''
 FDMHost = ''
 
-# populating the variables)
+# populating the variables
 
 print('Firepower Host(IP): ', end='')
 FDMHost = input()
@@ -34,6 +36,10 @@ username = input()
 # getpass prints "Password:" on it's own
 password = getpass()
 
+print('File name to import: ', end='')
+fileName = input()
+
+FDMUploadURI = 'https://' + FDMHost + '/api/fdm/latest/action/uploadconfigfile'
 
 headers = {
  'Accept': 'application/json',
@@ -53,18 +59,20 @@ def newToken():
 
 newToken()
 
+# popping the content-type from the header
+# because the next request will autopopulate with the correct values
 
+headers.pop('Content-Type')
 
-importBody = {
- 'diskFileName': 'Exported-at-newconfig.txt',
- 'preserveConfigFile': True,
- 'autoDeploy': False,
- 'allowPendingChange': True,
- 'type': 'scheduleconfigimport'
-}
+s = Session()
 
-#to load config response = requests.post('https://FDM/api/fdm/latest/action/configimport', data=json.dumps(importBody), headers=headers, verify=False)
-# may loose admin access for a while
+multipart_req = Request('POST', FDMUploadURI, files={'name': open(fileName, 'r')}, headers = headers).prepare()
+
+response = s.send(multipart_req, verify=False)
+print('Response code is: ' + str(response))
+
+# in order to verify header stuff print(multipart_req.body.decode('utf-8'))
+
 
 # to list files: response = requests.get('https://FDM/api/fdm/latest/action/configfiles', headers=headers, verify=False)
 # https://franklingu.github.io/programming/2017/10/30/post-multipart-form-data-using-requests/
