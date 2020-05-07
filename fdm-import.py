@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # 
 # This snippet can be used to upload a file to FDM.
+# 
+# A part of the code is created based on information found on the following websites regarding multipart uploading and using the prepare() in requests
+# https://franklingu.github.io/programming/2017/10/30/post-multipart-form-data-using-requests/
+# prepared https://requests.readthedocs.io/en/master/user/advanced/
 #
 # 
 
@@ -75,5 +79,3 @@ print('Response code is: ' + str(response))
 
 
 # to list files: response = requests.get('https://FDM/api/fdm/latest/action/configfiles', headers=headers, verify=False)
-# https://franklingu.github.io/programming/2017/10/30/post-multipart-form-data-using-requests/
-# prepared https://requests.readthedocs.io/en/master/user/advanced/
