@@ -6,7 +6,7 @@
 * fdm-import.py -- Allows you to upload a configuration to the FDM device
 * fdm-list-configs.py -- Lists available/saved configurations on the device
 * fdm-load-config.py -- Allows you to load the configuration into a candidate configuration ready for a commit.
-** (Does not commit autmatically!)
+  * (Does not commit autmatically!)
 
 ## How to use...
 
