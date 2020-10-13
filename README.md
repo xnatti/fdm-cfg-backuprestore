@@ -83,7 +83,7 @@ All snippets will prompt you for the device IP address along with credentials.
 >
 > \> python3 fdm-list-configs.py 
 >
-> Firepower Host(IP): 10.208.254.81
+> Firepower Host(IP): 192.168.1.1
 >
 > Username: admin
 >
