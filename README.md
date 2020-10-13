@@ -31,6 +31,8 @@ All snippets will prompt you for the device IP address along with credentials.
 
 *fdm-load-config* Requires IP address, credentials and the name of the config as it is displayed in the diskFileName attribute on the FDM device.
 
+*gettoken.py* It's just here to get an authentication token for manual or troubleshooting purposes with cURL
+
 ### fdm-export example
 > \> python3 fdm-export.py
 >
