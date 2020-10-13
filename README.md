@@ -77,6 +77,39 @@ All snippets will prompt you for the device IP address along with credentials.
 > <Response [200]>
 >
 
+### fdm-list-configs example:
+>
+> \> python3 fdm-list-configs.py 
+>
+> Firepower Host(IP): 10.208.254.81
+>
+> Username: admin
+>
+> Password: 
+>
+'''
+{
+  "items" : [ {
+    "diskFileName" : "Exported-at-2020-10-13-11-36-39Z.zip",
+    "dateModified" : "2020-10-13 11:36:41Z",
+    "sizeBytes" : 10931,
+    "id" : "default",
+    "type" : "configimportexportfileinfo",
+    "links" : {
+      "self" : "https://192.168.1.1/api/fdm/latest/action/configfiles/default"
+    }
+  } ],
+  "paging" : {
+    "prev" : [ ],
+    "next" : [ ],
+    "limit" : 10,
+    "offset" : 0,
+    "count" : 10,
+    "pages" : 0
+  }
+}
+
+'''
 
 ## Future items to consider
 
