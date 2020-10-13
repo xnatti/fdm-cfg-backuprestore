@@ -90,7 +90,7 @@ All snippets will prompt you for the device IP address along with credentials.
 ```
 {
   "items" : [ {
-    "diskFileName" : "Exported-at-2020-10-13-11-36-39Z.zip",
+    "diskFileName" : "test-upload-config.txt",
     "dateModified" : "2020-10-13 11:36:41Z",
     "sizeBytes" : 10931,
     "id" : "default",
