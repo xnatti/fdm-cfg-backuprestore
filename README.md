@@ -87,7 +87,7 @@ All snippets will prompt you for the device IP address along with credentials.
 >
 > Password: 
 >
-'''
+```
 {
   "items" : [ {
     "diskFileName" : "Exported-at-2020-10-13-11-36-39Z.zip",
@@ -109,7 +109,7 @@ All snippets will prompt you for the device IP address along with credentials.
   }
 }
 
-'''
+```
 
 ## Future items to consider
 
