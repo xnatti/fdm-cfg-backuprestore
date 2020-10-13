@@ -5,6 +5,7 @@
 # A part of the code is created based on information found on the following websites regarding multipart uploading and using the prepare() in requests
 # https://franklingu.github.io/programming/2017/10/30/post-multipart-form-data-using-requests/
 # prepared https://requests.readthedocs.io/en/master/user/advanced/
+# Cisco's guide with cURL examples: https://www.cisco.com/c/en/us/td/docs/security/firepower/ftd-api/guide/ftd-rest-api/ftd-api-import-export.html
 #
 # 
 
@@ -13,8 +14,11 @@ import json
 from getpass import getpass
 from requests import Request, Session
 
+# Disable insecure request warnings
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-# ok, actually to upload the friggin file:
+# To load the config via cURL
 # curl -kivv -F 'fileToUpload=@./Exported-at-newconfig.txt' -H "Authorization: Bearer XXXXXXXXXX" https://FDM/api/fdm/latest/action/uploadconfigfile
 # pay attn to diskFileName
 
@@ -31,7 +35,7 @@ FDMHost = ''
 
 # populating the variables
 
-print('Firepower Host(IP): ', end='')
+print('\nFirepower Host(IP): ', end='')
 FDMHost = input()
 
 print('Username: ', end='')
@@ -73,8 +77,9 @@ s = Session()
 multipart_req = Request('POST', FDMUploadURI, files={'name': open(fileName, 'r')}, headers = headers).prepare()
 
 response = s.send(multipart_req, verify=False)
+print('We are hoping for a HTTP response code of 200')
 print('Response code is: ' + str(response))
-
+print('\n\n')
 # in order to verify header stuff print(multipart_req.body.decode('utf-8'))
 
 

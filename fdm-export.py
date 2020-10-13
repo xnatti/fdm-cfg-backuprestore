@@ -10,6 +10,15 @@ import requests
 import json
 import time
 
+from requests import HTTPError
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+
+# Disable insecure request warnings
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+
+
+
 
 # presetting the variables (b/c testing)
 username = ''

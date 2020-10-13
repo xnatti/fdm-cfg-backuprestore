@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 # 
 # This snippet can be used to list config files on the FDM.
+# Cisco's guide with cURL examples: https://www.cisco.com/c/en/us/td/docs/security/firepower/ftd-api/guide/ftd-rest-api/ftd-api-import-export.html
 #
 
 import requests
 import json
 from getpass import getpass
 
+# Disable insecure request warnings
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-# ok, actually to upload the friggin file:
+# To upload a config file file with cURL:
 # curl -kivv -F 'fileToUpload=@./Exported-at-newconfig.txt' -H "Authorization: Bearer XXXXXXXXXX" https://FDM/api/fdm/latest/action/uploadconfigfile
-# pay attn to diskFileName
+# pay attention to diskFileName
 
 
 
@@ -23,7 +27,7 @@ username = ''
 password = ''
 FDMHost = ''
 
-# populating the variables)
+# populating the variables
 
 print('Firepower Host(IP): ', end='')
 FDMHost = input()
