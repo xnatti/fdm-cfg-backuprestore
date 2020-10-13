@@ -1,5 +1,14 @@
 # Snippets for backup and restore for FDM managed Cisco Firepower devices
 
+# Why?
+
+The backup&restore methods available via the GUI on the FDM managed devices are limited to import/export within the same version.
+It's also a binary file that limits the possibility of editing and/or auditing.
+Using the API allows us to download the configuration in a text format and upload again, even modified, and to a device that's not running the exact same patch release.
+
+
+
+
 ## Snippets
 
 * fdm-export.py -- Will export the current configuration to a local file (zipped)
@@ -31,17 +40,11 @@ All snippets will prompt you for the device IP address along with credentials.
 
 
 
-Testing using the API to a FirePower (FDM managed) 6.6 device to download and restore config
 
-## Why am I not using (...)
+## Future items to consider
 
-There are a few reasons.
+* refine the code so it will not crash on failure
+* check if credentials were valid before proceeding
+* allowing the export script to wait longer or until job is finished.
 
-1. I'm practising, and I'm not there yet, knowledge wise.
-2. ...
-
-## Stuff to remember
-
-If I modify the objects and impoort into a new device, I should remove version and id attributes.
-Future consideration would be a clean-up task.
 
