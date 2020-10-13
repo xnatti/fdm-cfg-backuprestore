@@ -14,12 +14,19 @@ All snippets will prompt you for the device IP address along with credentials.
 
 ### fdm-export example
 > python3 fdm-export.py
+
 > Firepower Host(IP): 192.168.1.1
+
 > Username: admin
+
 > Password: 
+
 > Waiting 15 sec for job to maybe finish...
+
 > Job finished, lets get that file
+
 > Download successful
+
 > Attempting to write to Exported-at-2020-10-13-12-38-48Z.zip 
 
 
