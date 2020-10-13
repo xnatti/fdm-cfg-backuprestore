@@ -3,7 +3,9 @@
 # Why?
 
 The backup&restore methods available via the GUI on the FDM managed devices are limited to import/export within the same version.
+
 It's also a binary file that limits the possibility of editing and/or auditing.
+
 Using the API allows us to download the configuration in a text format and upload again, even modified, and to a device that's not running the exact same patch release.
 
 
@@ -20,6 +22,14 @@ Using the API allows us to download the configuration in a text format and uploa
 ## How to use...
 
 All snippets will prompt you for the device IP address along with credentials.
+
+*fdm-export* will only require, and prompt for, IP address and credentials, and will print out the name of the saved file.
+
+*fdm-list-configs* will only require, and prompt for, IP address and credentials, and will print out the available configs. Take note of the diskFileName.
+
+*fdm-import* Requires IP address, credentials and a path to a local filename of the configuration. Usually a .txt file
+
+*fdm-load-config* Requires IP address, credentials and the name of the config as it is displayed in the diskFileName attribute on the FDM device.
 
 ### fdm-export example
 > \> python3 fdm-export.py
@@ -39,6 +49,33 @@ All snippets will prompt you for the device IP address along with credentials.
 > Attempting to write to Exported-at-2020-10-13-12-38-48Z.zip 
 
 
+### fdm-import example
+> \> python3 fdm-import.py 
+>
+> Firepower Host(IP): 192.168.1.1
+>
+> Username: admin
+>
+> Password: 
+>
+> File name to import: test-upload-config.txt
+>
+> Response code is: <Response [200]>
+>
+
+### fdm-load-config exmaple
+
+> \> python3 load-config.py 
+> Firepower Host(IP): 192.168.1.1
+>
+> Username: admin
+>
+> Password: 
+>
+> File name according to FDM (diskFileName): test-upload-config.txt
+>
+> <Response [200]>
+>
 
 
 ## Future items to consider
@@ -46,5 +83,5 @@ All snippets will prompt you for the device IP address along with credentials.
 * refine the code so it will not crash on failure
 * check if credentials were valid before proceeding
 * allowing the export script to wait longer or until job is finished.
-
+* Better feedback on the import and load job results.
 
