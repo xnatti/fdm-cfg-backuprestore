@@ -135,4 +135,4 @@ All snippets will prompt you for the device IP address along with credentials.
 * check if credentials were valid before proceeding
 * allowing the export script to wait longer or until job is finished.
 * Better feedback on the import and load job results.
-* Validate use input
+* Validate user input
