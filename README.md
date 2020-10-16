@@ -14,9 +14,9 @@ Using the API allows us to download the configuration in a text format and uploa
 ## Snippets
 
 * [fdm-export.py](fdm-export.py) -- Will export the current configuration to a local file (zipped)
-* fdm-import.py -- Allows you to upload a configuration to the FDM device
-* fdm-list-configs.py -- Lists available/saved configurations on the device
-* fdm-load-config.py -- Allows you to load the configuration into a candidate configuration ready for a commit.
+* [fdm-import.py](fdm-import.py) -- Allows you to upload a configuration to the FDM device
+* [fdm-list-configs.py](fdm-list-configs.py) -- Lists available/saved configurations on the device
+* [fdm-load-config.py](fdm-load-config.py) -- Allows you to load the configuration into a candidate configuration ready for a commit.
   * (Does not commit autmatically!)
 
 # Installation
