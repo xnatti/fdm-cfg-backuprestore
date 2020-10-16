@@ -22,9 +22,16 @@ Using the API allows us to download the configuration in a text format and uploa
 # Installation
 
 Using a virtual environment to run these scripts can be done in the following way:
+        For Linux:
 
         python3 -m venv venv
         source venv/bin/activate
+        pip install -r requirements.txt
+
+        For Windows:
+
+        python3 -m venv venv
+        venv\Scripts\Activate.bat
         pip install -r requirements.txt
 
 
