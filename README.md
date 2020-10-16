@@ -19,6 +19,15 @@ Using the API allows us to download the configuration in a text format and uploa
 * fdm-load-config.py -- Allows you to load the configuration into a candidate configuration ready for a commit.
   * (Does not commit autmatically!)
 
+# Installation
+
+Using a virtual environment to run these scripts can be done in the following way:
+
+        python3 -m venv venv
+        source venv/bin/activate
+
+
+
 ## How to use...
 
 All snippets will prompt you for the device IP address along with credentials.
