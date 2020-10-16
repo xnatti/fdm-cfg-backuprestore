@@ -25,7 +25,7 @@ Using a virtual environment to run these scripts can be done in the following wa
 
         python3 -m venv venv
         source venv/bin/activate
-
+        pip install -r requirements.txt
 
 
 ## How to use...
