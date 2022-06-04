@@ -81,6 +81,7 @@ All snippets will prompt you for the device IP address along with credentials.
 > Response code is: <Response [200]>
 >
 
+
 ### fdm-load-config exmaple
 
 > \> python3 load-config.py 
