@@ -3,7 +3,7 @@
 # A simple script to fetch or import configs from FirePower 6.5 devices
 # Related doc: https://www.cisco.com/c/en/us/td/docs/security/firepower/ftd-api/guide/ftd-rest-api/ftd-api-import-export.html
 # jonatan@routing.is
-# mkey
+# mkey2
 
 from getpass import getpass
 import requests
