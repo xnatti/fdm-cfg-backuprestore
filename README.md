@@ -137,6 +137,7 @@ All snippets will prompt you for the device IP address along with credentials.
 * allowing the export script to wait longer or until job is finished.
 * Better feedback on the import and load job results.
 * Validate user input
+* error handling
 
 [![Run in Cisco Cloud IDE](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-runable-icon.svg)](https://developer.cisco.com/codeexchange/devenv/xnatti/fdm-cfg-backuprestore/)
 
